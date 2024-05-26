@@ -1,0 +1,259 @@
+@import "mixins";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to right bottom, #7aa7ba, #0d1a20);
+  // background: #7aa7ba;
+  min-height: 100vh;
+}
+
+.container {
+  @include flex(space-between);
+  padding: $padding-twenty;
+  color: map-get($color, "White");
+
+  .links {
+    @include flex(none);
+  }
+
+  li {
+    list-style-type: none;
+    font-weight: 500;
+  }
+
+  a {
+    text-decoration: none;
+    color: map-get($color, "White");
+    margin: $margin-twenty;
+    font-size: 17px;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+  }
+
+  a:hover {
+    color: #fb923c;
+  }
+  .lists {
+    @include flex(none);
+  }
+}
+
+.shopping__bag {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: map-get($color, "White");
+
+  .jjj {
+    @include flex(none);
+    align-items: center;
+  }
+}
+
+.shoes_2024 {
+  color: map-get($color, "White");
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+  position: absolute;
+  left: 20rem;
+  top: 5rem;
+}
+
+.buy_now {
+  color: map-get($color, "White");
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  position: absolute;
+  left: 33.6rem;
+  top: 9rem;
+}
+
+.displayed_items {
+  @include flex(space-between);
+  color: map-get($color, "White");
+  padding: 0 0 60px 0;
+
+  .items {
+    position: absolute;
+    transform: rotate(-90deg);
+  }
+
+  .number {
+    position: relative;
+    bottom: 0;
+    top: 0;
+    transform: rotate(-90deg);
+    @include flex(none);
+    flex-direction: row-reverse;
+    gap: 15px;
+
+    span {
+      background-color: white;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.image {
+  animation: shoe 2s linear infinite;
+  width: 100%;
+  margin: 0;
+}
+
+.image img {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  margin: 60px auto;
+  transform: rotate(-20deg);
+  transition: all 2s ease-in-out;
+}
+
+@keyframes shoe {
+  0% {
+    transform: translateY(0px);
+  }
+  70% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.footer {
+  @include flex(space-between);
+  margin: 40px 30px;
+
+  p {
+    color: map-get($color, "White");
+    font-size: 20px;
+  }
+
+  .links {
+    @include flex(none);
+    gap: 30px;
+    margin: 0 40px;
+  }
+
+  li {
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+    color: map-get($color, "White");
+    transition: all 0.5s ease-in-out;
+  }
+  a:hover {
+    color: #fb923c;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .image {
+    margin: 100px 0 0 0;
+  }
+
+  .image img {
+    width: 100%;
+    margin: auto;
+  }
+
+  .displayed_items {
+    margin: 100px auto;
+  }
+  .shoes_2024 {
+    color: map-get($color, "White");
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    position: absolute;
+    left: 1rem;
+    top: 5rem;
+    margin: 50px auto;
+  }
+
+  .buy_now {
+    color: map-get($color, "White");
+    text-align: center;
+    position: absolute;
+    left: 16rem;
+    top: 10rem;
+    font-size: 20px;
+    margin: 50px auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    ul li {
+      display: none;
+    }
+
+    .search {
+      display: none;
+    }
+  }
+
+  .shoes_2024 {
+    color: map-get($color, "White");
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    position: absolute;
+    left: 1rem;
+    top: 5rem;
+    margin: 50px auto;
+  }
+
+  .buy_now {
+    color: map-get($color, "White");
+    text-align: center;
+    position: absolute;
+    left: 16rem;
+    top: 10rem;
+    font-size: 20px;
+    margin: 50px auto;
+  }
+
+  .displayed_items {
+    margin: 200px 0 100px 0;
+    padding: 0;
+
+    .items {
+      left: -5rem;
+      z-index: 1;
+    }
+    .number {
+      left: 2rem;
+    }
+  }
+
+  .image {
+    margin: 100px 0 0 0;
+  }
+
+  .image img {
+    width: 130%;
+    margin: auto;
+  }
+
+  .footer {
+    margin: 60px 20px;
+
+    .links {
+      margin: 0;
+    }
+  }
+}
